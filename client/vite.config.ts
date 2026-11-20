@@ -6,6 +6,9 @@ export default defineConfig({
   server: {
     port: 5173,
 
+    // Codespaces opens the dev server through *.app.github.dev; Vite rejects unknown hosts otherwise.
+    allowedHosts: ['.app.github.dev'],
+
     // The SPA calls /api on its own origin and Vite forwards it to the API. This
     // keeps the browser same-origin in development, so CORS and cookie behaviour
     // match production instead of being a dev-only special case.

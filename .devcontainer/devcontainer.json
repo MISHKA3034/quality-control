@@ -1,0 +1,23 @@
+{
+  // Запуск в GitHub Codespaces: .NET 10 + Node 22 + SQL Server в соседнем контейнере.
+  // После создания API (5090) и клиент (5173) стартуют сами, клиент открывается в браузере.
+  "name": "АСКК (QualityControl)",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+  },
+  "hostRequirements": { "cpus": 2, "memory": "8gb" },
+  "forwardPorts": [5173, 5090],
+  "portsAttributes": {
+    "5173": { "label": "АСКК — клиент", "onAutoForward": "openBrowser" },
+    "5090": { "label": "API / Swagger", "onAutoForward": "silent" }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postStartCommand": "nohup bash .devcontainer/start.sh > /tmp/askk-start.log 2>&1 &",
+  "customizations": {
+    "codespaces": { "openFiles": ["README.md"] },
+    "vscode": { "extensions": ["ms-dotnettools.csharp"] }
+  }
+}

@@ -4,6 +4,22 @@
 учёт производственных партий, оформление актов проверки, регистрация дефектов,
 контроль их устранения и аналитическая отчётность.
 
+## Запуск онлайн (GitHub Codespaces)
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/MISHKA3034/quality-control?quickstart=1)
+
+Кнопка создаёт облачное окружение с .NET 10, Node.js и SQL Server
+(настройки — в [.devcontainer](.devcontainer)). Первый запуск занимает 3–5 минут:
+скачивается образ SQL Server, применяются миграции и создаются демо-данные.
+После этого клиент открывается в браузере сам (вкладка **Ports → 5173**).
+
+Учётные записи в Codespaces: `admin` / `Admin123!`; демо-пользователи
+(`inspector`, `master.cmk`, `production` и др.) — `Demo1234!`.
+Логи: `/tmp/askk-api.log`, `/tmp/askk-client.log`.
+
+> Пароли выше — только для одноразового демо-окружения. Codespace засыпает
+> после ~30 минут простоя; бесплатная квота GitHub — около 60 часов в месяц.
+
 ---
 
 ## Технологии

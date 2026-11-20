@@ -1,0 +1,22 @@
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/dotnet:10.0
+    volumes:
+      - ../..:/workspaces:cached
+    command: sleep infinity
+    # Общая сеть с БД: SQL Server доступен как localhost,1433.
+    network_mode: service:db
+    environment:
+      # Демонстрационные значения только для одноразового окружения Codespaces.
+      ConnectionStrings__DefaultConnection: "Server=localhost,1433;Database=QualityControlDb;User Id=sa;Password=Codespaces_Demo1!;TrustServerCertificate=True;MultipleActiveResultSets=true"
+      Seed__AdministratorPassword: "Admin123!"
+      Seed__DemoUserPassword: "Demo1234!"
+      PdfExport__FontFamily: "DejaVu Sans"
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Codespaces_Demo1!"
+      MSSQL_PID: "Developer"
