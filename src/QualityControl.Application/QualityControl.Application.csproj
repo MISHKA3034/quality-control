@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The Application layer holds use cases and depends on abstractions, not on a
+    concrete database or transport. It must never reference ASP.NET Core.
+
+    It does reference EF Core, for two things only: the async IQueryable operators
+    (ToListAsync/CountAsync) and AutoMapper's ProjectTo. Both need the query provider
+    to stay composable so that filtering, sorting and paging run in SQL rather than
+    in memory. The alternative — materialising through the repository and paging in
+    C# — would pull whole tables across the wire on the list endpoints. No DbContext
+    is referenced here; persistence still lives entirely in Infrastructure.
+  -->
+
+  <ItemGroup>
+    <!-- 14.0.0 carries a known high-severity advisory (GHSA-rvv3-g6hj-g44x); stay on 16.x. -->
+    <PackageReference Include="AutoMapper" Version="16.3.0" />
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.9" />
+    <!-- Supplies OptionsBuilder.Bind; Microsoft.Extensions.Options alone does not. -->
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\QualityControl.Domain\QualityControl.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

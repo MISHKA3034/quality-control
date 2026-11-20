@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The Domain layer intentionally has no package or project references.
+    Nothing here may depend on EF Core, ASP.NET Core or any other framework.
+    Common build settings come from Directory.Build.props at the repository root.
+  -->
+
+</Project>

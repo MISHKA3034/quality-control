@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/QualityControl.API/QualityControl.API.csproj" />
+    <Project Path="src/QualityControl.Application/QualityControl.Application.csproj" />
+    <Project Path="src/QualityControl.Domain/QualityControl.Domain.csproj" />
+    <Project Path="src/QualityControl.Infrastructure/QualityControl.Infrastructure.csproj" />
+  </Folder>
+</Solution>

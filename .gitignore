@@ -1,0 +1,24 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## Uploads produced at runtime
+src/QualityControl.API/wwwroot/uploads/
+
+## Node / frontend
+node_modules/
+dist/
+.vite/
+*.local
+
+## Environment overrides that may hold real secrets
+appsettings.Production.json
+.env
+.env.*
+!.env.example
+
+## Runtime data: logs and uploaded defect photos
+src/QualityControl.API/App_Data/

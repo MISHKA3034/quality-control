@@ -1,0 +1,41 @@
+/* MUI's CssBaseline does the resetting; this only covers what it does not. */
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Long identifiers (batch numbers, drawing numbers) must not force the page to
+   scroll sideways on a tablet. */
+body {
+  overflow-wrap: break-word;
+}
+
+/* The default scrollbar is heavy against the dense tables this app is made of. */
+* {
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+@media print {
+  /* Chrome drops backgrounds when printing, which would flatten status chips
+     into unreadable white-on-white. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  // Solution-style root: `tsc -b` builds both projects. The app and the Vite
+  // config need different libs (DOM vs Node), so they cannot share one config.
+  "files": [],
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
+}
